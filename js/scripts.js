@@ -6,11 +6,15 @@ $(document).ready(function() {
     var secondSide = parseInt($("#side2").val());
     var thirdSide = parseInt($("#side3").val());
 
-    if (firstSide + secondSide <= thirdSide || firstSide + thirdSide <= secondSide || secondSide + thirdSide <= firstSide){
+    if (isNaN(firstSide) || isNaN(secondSide) || isNaN(thirdSide)) {
+      $("#result").text("Missing input");
+    }
+
+    else if (firstSide + secondSide <= thirdSide || firstSide + thirdSide <= secondSide || secondSide + thirdSide <= firstSide){
       alert("This is not a triangle!");
       }
-    else {
 
+    else {
       if (firstSide === secondSide && firstSide === thirdSide){
         $("#result").text("This is an equilateral triangle");
       }
